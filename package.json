@@ -1,0 +1,49 @@
+{
+  "name": "ideanick",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "b": "pnpm --filter @ideanick/backend",
+    "w": "pnpm --filter @ideanick/webapp",
+    "sh": "pnpm --filter @ideanick/shared",
+    "dev": "pnpm -r --parallel dev",
+    "test": "pnpm -r test",
+    "types": "concurrently 'pnpm b types' 'pnpm w types' 'pnpm sh types'",
+    "lint": "concurrently 'pnpm b lint' 'pnpm w lint' 'pnpm sh lint'",
+    "prettify": "pnpm -r --parallel prettify",
+    "dcc": "dotenv -e ./.env.docker -e ./backend/.env -e ./webapp/.env -- bash -c 'docker compose config'",
+    "dcb": "dotenv -e ./.env.docker -e ./backend/.env -e ./webapp/.env -- bash -c 'docker compose build'",
+    "dcu": "dotenv -e ./.env.docker -e ./backend/.env -e ./webapp/.env -- bash -c 'docker compose up'",
+    "dth": "docker tag ideanick-image registry.heroku.com/ideanickinfo/web",
+    "hl": "heroku login && heroku container:login",
+    "dph": "docker push registry.heroku.com/ideanickinfo/web",
+    "hr": "heroku container:release web -a ideanickinfo",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "dotenv-cli": "^7.3.0",
+    "cross-env": "^7.0.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.5",
+    "concurrently": "^8.2.0",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-config-standard-with-typescript": "^37.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jest": "^27.4.0",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "lint-staged": "^14.0.0",
+    "prettier": "^3.0.2",
+    "rimraf": "^5.0.1",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "ts-patch": "^3.0.2",
+    "typescript": "^5.1.6",
+    "typescript-transform-paths": "^3.4.6"
+  }
+}

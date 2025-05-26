@@ -1,0 +1,22 @@
+@import '../../styles/_vars';
+@import '../../styles/_mixins';
+
+.alert {
+  padding: 10px;
+  border-radius: $borderRadiusSmall;
+
+  &.red {
+    background-color: #ffd1d1;
+    color: #631717;
+  }
+
+  &.green {
+    background-color: #d7ffd7;
+    color: #2b6d2b;
+  }
+
+  &.brown {
+    background-color: #e9d5bd;
+    color: #614f39;
+  }
+}

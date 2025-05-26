@@ -1,0 +1,16 @@
+<mjml>
+  <mj-head>
+    <mj-title>Your Idea Blocked!</mj-title>
+    <mj-include path="./_head.mjml" />
+  </mj-head>
+  <mj-body mj-class="body">
+    <mj-include path="./_header.mjml" />
+    <mj-section mj-class="content">
+      <mj-column>
+        <mj-text mj-class="h1">Your Idea Blocked!</mj-text>
+        <mj-text mj-class="text">Sorry, but we block your idea "{{ideaNick}}"</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-include path="./_footer.mjml" />
+  </mj-body>
+</mjml>
