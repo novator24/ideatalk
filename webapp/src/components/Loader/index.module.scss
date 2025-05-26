@@ -1,0 +1,21 @@
+@import '../../styles/vars';
+@import '../../styles/mixins';
+
+.loader {
+  &.type-page {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: inherit;
+    height: 100%;
+    @include loader($borderWidth: 5px, $size: 60px, $color: $gray);
+  }
+
+  &.type-section {
+    position: relative;
+    display: block;
+    height: 80px;
+    width: 100%;
+    @include loader($borderWidth: 5px, $size: 60px, $color: $gray);
+  }
+}

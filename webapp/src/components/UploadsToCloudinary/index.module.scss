@@ -1,0 +1,31 @@
+@import '../UploadToCloudinary/index.module';
+
+.field {
+  input {
+    display: none;
+  }
+
+  .previews {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -5px;
+
+    .previewPlace {
+      margin-right: 5px;
+
+      .delete {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        .deleteIcon {
+          color: $red;
+        }
+      }
+    }
+  }
+}

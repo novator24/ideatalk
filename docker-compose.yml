@@ -1,0 +1,19 @@
+services:
+  app:
+    # platform: linux/amd64 # uncomment to build for amd64 which used in heroku
+    build:
+      context: .
+      # args used in image build as env variables
+      args:
+        # ${...} is used to get value from env of host machine
+        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
+        SOURCE_VERSION: ${SOURCE_VERSION}
+    image: ideanick-image
+    container_name: ideanick-container
+    # env_file and ports used in runtime of container, not in image build
+    env_file:
+      - ./webapp/.env
+      - ./backend/.env
+      - ./.env.docker
+    ports:
+      - '${PORT}:${PORT}'

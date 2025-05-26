@@ -1,0 +1,30 @@
+@import '../../node_modules/reset-css/sass/_reset';
+@import '../../node_modules/react-image-gallery/styles/scss/image-gallery';
+@import './_vars';
+
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+body {
+  font-family: $defaultFontFamily;
+  font-size: $defaultFontSize;
+  background: $defaultBackgroundColor;
+  color: $defaultTextColor;
+  line-height: $defaultLineHeight;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}

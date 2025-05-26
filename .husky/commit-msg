@@ -1,0 +1,20 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Extract the relevant line from the COMMIT_EDITMSG
+relevant_line=$(awk '/^# ------------------------ >8 ------------------------/{exit} !/^#/ && NF {print; exit}' "$1")
+
+# If no relevant line is found, just leave the commit message unchanged
+[ -z "$relevant_line" ] && exit 0
+
+# Extract all lines except for the relevant_line and comments
+all_other_lines=$(awk 'BEGIN{flag=0} /^# ------------------------ >8 ------------------------/{flag=1} !/^#/ && NF && flag {print}' "$1")
+
+# Format the relevant line
+formatted_relevant_line=$(echo "$relevant_line" | sed -e $'s/^[ \t]*//' -e $'s/[ \t]*\.*[ \t]*$//' -E -e $'s/[ \t]+/ /g' | awk '{ $0=toupper(substr($0,1,1)) substr($0,2); } 1')
+
+# Update the commit message to include both the formatted relevant line and all other lines
+{
+  echo "$formatted_relevant_line"
+  echo "$all_other_lines"
+} > "$1"

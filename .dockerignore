@@ -1,0 +1,8 @@
+**/.DS_Store
+**/*.ignore*
+**/node_modules
+**/dist
+**/.env*
+**/Dockerfile
+.github
+.git

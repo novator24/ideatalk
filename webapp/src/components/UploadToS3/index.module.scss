@@ -1,0 +1,17 @@
+@import '../Input/index.module';
+
+.field {
+  input {
+    display: none;
+  }
+
+  .uploads {
+    margin-bottom: 5px;
+
+    .upload {
+      .uploadLink {
+        @include link;
+      }
+    }
+  }
+}

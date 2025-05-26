@@ -1,0 +1,59 @@
+@import '../../styles/_vars';
+@import '../../styles/_mixins';
+
+$breakpoint: '<=900px';
+
+.layout {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  @include media($breakpoint) {
+    flex-flow: column nowrap;
+  }
+
+  .navigation {
+    height: 100%;
+    overflow: auto;
+    flex: 0 0 200px;
+    padding: 20px 30px;
+    border-right: 1px solid $black;
+    @include media($breakpoint) {
+      overflow: visible;
+      flex: 0 0 auto;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid $black;
+    }
+
+    .logo {
+      padding-top: 2px;
+      width: 100%;
+      max-width: 130px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .menu {
+      .item {
+        &:not(:first-child) {
+          margin-top: 5px;
+        }
+
+        .link {
+          @include link;
+        }
+      }
+    }
+  }
+
+  .content {
+    height: 100%;
+    overflow: auto;
+    flex: 1 1 100%;
+    padding: 20px 30px;
+    @include media($breakpoint) {
+      overflow: visible;
+      height: auto;
+    }
+  }
+}
